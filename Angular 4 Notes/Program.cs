@@ -15,8 +15,7 @@ namespace Angular_4_Notes
 }
 
 /*
-
-                    ***** ANGULAR 4 DOCS v.1.0*****
+					*****ANGULAR 4 DOCS v.1.0*****
 
 
 1. Angular 4 
@@ -39,13 +38,12 @@ namespace Angular_4_Notes
   ---> Better Bug fixes Alert.
 
   ---> Animations being pulled out of @angular/core so as to remove the extra code being imported into our production bundle.
-       Though you can easliy add animation by importing { BrowserAnimationsModule}
-from @angular/platform-browser/animations
-into NgModule.
+       Though you can easliy add animation by importing {BrowserAnimationsModule} from @angular/platform-browser/animations 
+       into NgModule.
  
   ---> Renderer 2 in place of Renderer from same ‘@angular/core’.
 
-  ---> * ngIf/else : Now you can use else clause as well.
+  ---> *ngIf/else : Now you can use else clause as well .
 
   ---> TypeScript 2.1 and 2.2 compatibility: Finally We can use typescript 2.1 or more earlier only upto typescript 1.8 
        was supported.
@@ -53,8 +51,8 @@ into NgModule.
   ---> ModuleID Removed: They have added a new SystemJS plugin which dynamically converts "component-relative" paths in
        templateUrl and styleUrls to "absolute paths" for you.
 
-  ---> Ahead of Time Compilation - View Engine: As you may know, in AoT mode, Angular compiles your templates during the
-       build, and generates JS code whereas in case of Just in Time mode, this compilation is done at runtime.Now, AoT has
+  ---> Ahead of Time Compilation - View Engine: As you may know, in AoT mode, Angular compiles your templates during the 
+       build, and generates JS code whereas in case of Just in Time mode, this compilation is done at runtime. Now, AoT has 
        several advantages, like you will get to know that your templates is incorrect at build time instead of having to wait
        at runtime, and the application starts faster (as the code generation is already done). 
 
@@ -62,18 +60,18 @@ into NgModule.
 
   ---> Pipes: Angular 4 introduced a new titlecase pipe. It changes the first letter of each word into uppercase:
 	
-		<p>{ { 'foo bar' | titlecase } }</p>
+		<p>{{ 'foo bar' | titlecase }}</p>
 		  <!-- will display 'Foo Bar' -->
 
   ---> Http: Adding search parameters to an HTTP request has been simplified:
 
-		http.get(`${ baseUrl}/ api / movies`, {params: { sort: 'ascending'} });
+		http.get(`${baseUrl}/api/movies`, {params: {sort : 'ascending'} });
 
+	
+  ---> Router: A new interface has been introduced to represent the parameters of a URL: ParamMap.
 
---->Router: A new interface has been introduced to represent the parameters of a URL: ParamMap.
-
-        const id = this.route.snapshot.paramMap.get('xyz');
-        this.abcService.get(id).subscribe(abc => this.xyz = xyz);
+		const id = this.route.snapshot.paramMap.get('xyz');
+		this.abcService.get(id).subscribe(abc => this.xyz = xyz);
 
 
 2. Angular CLI(Command Line Interface)	
@@ -110,83 +108,81 @@ into NgModule.
 	--->  A module can export or hide components, directives, pipes and services.
 
 	--->  The exported elements are meant to be used by other modules, while the ones that are not exported 
-	      (hidden) are just used inside the module itself and cannot be directly accessed by other modules
+	      (hidden) are just used inside the module itself and cannot be directly accessed by other modules 
               of our application.
 
 	---> To be able to define modules we have to use the decorator NgModule.
-		..> Decorators are functions that modify JavaScript classes. Angular has many decorators that attach
-            metadata to classes so that it knows what those classes mean and how they should work.
+		..> Decorators are functions that modify JavaScript classes. Angular has many decorators that attach 
+		    metadata to classes so that it knows what those classes mean and how they should work.
 
-				 import { NgModule }
-from '@angular/core';
+				 import { NgModule } from '@angular/core';
 
-@NgModule
+	   			 @NgModule
 					({
 
-    imports: [ ... ],
+  				 imports: [ ... ],
  				 declarations: [ ... ],
   				 bootstrap: [ ... ]
 
-                     })
+					 })
 				 
 				 export class AppModule { }
 
 
 	---> The NgModule decorator requires at least three properties: imports, declarations and bootstrap.
 
-        ..> The property imports expects an array of modules.Here's where we define the pieces of 
+		..> The property imports expects an array of modules. Here's where we define the pieces of 
 		    our puzzle (our application).
 
 		..> The property declarations expects an array of components, directives and pipes that are
-            part of the module.
+		    part of the module.
 
-        ..> The bootstrap property is where we define the root component of our module.Even though
-            this property is also an array, 99% of the time we are going to define only one component.
+		..> The bootstrap property is where we define the root component of our module. Even though 
+		    this property is also an array, 99% of the time we are going to define only one component.
 
 
 
-            Ex. --> 
-                    @NgModule({
-    imports: [BrowserModule],   --> The BrowserModule is a built -in module that exports
-                   basic directives, pipes and services.
-    declarations: [AppComponent],
+			Ex. --> 
+					@NgModule({
+  					imports: [BrowserModule],   --> The BrowserModule is a built-in module that exports 
+									basic directives, pipes and services.
+ 					declarations: [AppComponent],
  					bootstrap: [AppComponent]
 						})
 
 	--->  There are two types of modules, root modules and feature modules.
-         ..> In an application we only have one root module and zero or many feature modules.
+		 ..> In an application we only have one root module and zero or many feature modules.
 
-         ..>  If the module is importing the BrowserModule then it's a root module, 
+		 ..>  If the module is importing the BrowserModule then it's a root module, 
 		      if instead is importing the CommonModule then it is a feature module.
 
-         ..> As developers, we need to take care of importing the BrowserModule in the root module and instead,
-             import the CommonModule in any other module we create for the same application.
+		 ..> As developers, we need to take care of importing the BrowserModule in the root module and instead, 
+		     import the CommonModule in any other module we create for the same application. 
  
 	
 	 > ANGULAR LIBRARIES
 
-	  ---> Angular ships as a collection of JavaScript modules.You can think of them as library modules.
+	  ---> Angular ships as a collection of JavaScript modules. You can think of them as library modules.
 
 	  ---> Each Angular library name begins with the @angular prefix.
 
-                  Ex. --> 
-                    import { BrowserModule }
-from '@angular/platform-browser';
+    	  		Ex. --> 
+					import { BrowserModule } from '@angular/platform-browser';
 
-					imports: [BrowserModule]
+					imports: [ BrowserModule ]
 
 	> COMPONENTS 
 	
          ---> A component controls a patch of screen called a view.
 
-	 ---> A component is basically a class that is used to show an element on the screen.
-          The components have some properties and by using them we can manipulate how the
-          element should look on the screen and behave.
+	 ---> A component is basically a class that is used to show an element on the screen. 
+	      The components have some properties and by using them we can manipulate how the 
+	      element should look on the screen and behave.
 
 	 ---> We can create a component, destroy and update as the user moves in the application.
 
-	 ---> The view of the component is defined through templates.
-          Templates are basically the HTML we use,, to show on our page.
+	 ---> The view of the component is defined through templates. 
+	      Templates are basically the HTML we use,, to show on our page.
 
 	 
 	> METADATA
@@ -195,18 +191,17 @@ from '@angular/platform-browser';
 
 	 ---> In TypeScript, you attach metadata by using a decorator.
 
-            Ex. -->
-
-                    @Component({
-    selector: 'hero-list',
+			Ex. -->
+					
+					@Component({
+ 					 selector:    'hero-list',
  					 templateUrl: './hero-list.component.html',
-  				 	 providers:  [HeroService]
-                        })
+  				 	 providers:  [ HeroService ]
+						})
 
-					export class HeroListComponent implements OnInit
-{
-   
-} 
+					export class HeroListComponent implements OnInit {
+					
+						} 
 
 	 ---> @Component decorator, which identifies the class immediately below it as a component class.
 
@@ -287,13 +282,58 @@ from '@angular/platform-browser';
 
                     < food - detail * ngIf = "selectedFood" ></ food - detail >
 
-                   >> Attribute directives changes the appearance of DOM elements.
+                   >> Attribute directives changes the appearance of DOM elements. (ngStyle)
 
                 Ex.     < input[(ngModel)] = "hero.name" >
 
+                ->An attribute directive minimally requires building a controller class annotated with
+                    @Directive, which specifies the selector that identifies the attribute.
+                            The controller class implements the desired directive behavior.
 
 
+          Ex.In Html -> 
+					<p myHighlight>Highlight me!</p>
 
+
+             In Ts File ->
+
+                  import { Directive, ElementRef, Input } from '@angular/core';
+
+                    @Directive({ selector: '[myHighlight]' })
+					export class HighlightDirective
+                    {
+                    constructor(el: ElementRef)
+                     {
+                         el.nativeElement.style.backgroundColor = 'yellow';
+                     }
+                    }
+
+			
+				..> Directive -> provides the functionality of the @Directive decorator.
+
+                ..> ElementRef -> injects into the directive's constructor so the code can access the DOM 
+					          element.
+
+                ..> Input -> allows data to flow from the binding expression into the directive.
+
+
+                ..> Next, the @Directive decorator function contains the directive metadata
+				    in a configuration object as an argument.
+
+                ..> @Directive requires a CSS selector to identify the HTML in the template
+                    that is associated with the directive. The CSS selector for an attribute
+ 				    is the attribute name in square brackets.  Here, the directive's selector
+ 				    is [myHighlight]. Angular locates all elements in the template that have an attribute
+                                    named myHighlight.
+
+				..> After the @Directive metadata comes the directive's controller class, called HighlightDirective,
+                    which contains the logic for the directive. Exporting HighlightDirective makes it
+                    accessible to other components.
+
+
+				..> Angular creates a new instance of the directive's controller class for each matching element,
+				    injecting an Angular ElementRef into the constructor.ElementRef is a service that
+                   grants direct access to the DOM element through its nativeElement property.
 
 
 
